@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Squere from 'test/test';
+import Home from 'screens/Home';
 
-ReactDOM.render(<Squere />, document.getElementById('root'));
+ReactDOM.render(<Home />, document.getElementById('root'));
