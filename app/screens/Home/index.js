@@ -24,7 +24,6 @@ class Home extends React.Component {
   }
   render() {
     const { data } = this.state;
-    debugger;
     return (
       <div className="pwa-container">
         <div className="pwa-header">

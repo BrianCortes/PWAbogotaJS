@@ -23,21 +23,18 @@ class Swipe extends React.Component {
       },
     });
   }
-  renderReactSwipe = profiles => {
-    debugger;
-    return (
-      <ReactSwipe swipeOptions={{ continuous: false }}>
-        {profiles.map(profile => (
-          <div id={profile.id}>
-            <Card profile={profile} />
-          </div>
-        ))}
-      </ReactSwipe>
-    );
-  };
+  renderReactSwipe = profiles => (
+    <ReactSwipe swipeOptions={{ continuous: false }}>
+      {profiles.map(profile => (
+        <div key={profile.id}>
+          <Card profile={profile} />
+        </div>
+      ))}
+    </ReactSwipe>
+  );
   renderNormalComponent = profiles => (
     <div className="pwa-container-cards">
-      {profiles.map(profile => <Card profile={profile} />)}
+      {profiles.map(profile => <Card profile={profile} key={profile.id} />)}
     </div>
   );
   render() {
