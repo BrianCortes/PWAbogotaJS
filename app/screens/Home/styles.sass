@@ -1,25 +1,28 @@
 .pwa-container
   background: linear-gradient(to right, #ff512f, #dd2476)
   display: flex
+  flex-wrap: wrap
   justify-content: center
   align-items: center
   height: 100%
 
-.pwa-content
+.pwa-header
   display: flex
-  flex-wrap: wrap
-  justify-content: center
+  justify-content: flex-start
   align-items: center
-  width: 90%
-  flex-direction: columns
-  margin: 5vh 5vw 5vh 5vw
+  width: 100%
+  margin: 0 4vw 0 4vw
 
   h1
     width: 100%
-    font-size: 45px
+    font-size: 3em
     font-family: 'Pacifico'
     text-align: center
     color: white
+
+    @media screen and (max-width:768px)
+      margin-top: 20vw;
+      font-size: 10vw
 
   p
     width: 100%

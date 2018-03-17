@@ -6,6 +6,7 @@
   "author": "Brian Cortes",
   "license": "MIT",
   "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.2",
     "nodemon": "^1.12.1",
@@ -19,18 +20,23 @@
     "prettier": "prettier --config .prettierrc --write '*/**.js' '!build/*'"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.17",
+    "enquire.js": "^2.1.6",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.7.2",
+    "normalize.css": "^8.0.0",
     "prettier": "^1.8.2",
     "prettier-webpack-loader": "^0.0.1",
-    "react": "^16.1.1",
+    "react": "^16.2.0",
     "react-dom": "^16.1.1",
+    "react-swipe": "^5.1.1",
+    "swipe-js-iso": "^2.0.4",
     "webpack": "^3.9.1",
     "webpack-merge": "^4.1.1"
   }
