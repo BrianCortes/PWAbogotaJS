@@ -5,11 +5,13 @@ export const PATHS = {
   root: path.join(__dirname, '..'),
   app: path.join(__dirname, '..', 'app'),
   build: path.join(__dirname, '..', 'build'),
+  worker: path.join(__dirname, '../worker'),
 };
 
 const commonConfig = {
   entry: {
     app: PATHS.app,
+    worker: PATHS.worker,
   },
   output: {
     path: PATHS.build,

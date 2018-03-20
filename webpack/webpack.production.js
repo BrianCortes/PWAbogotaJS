@@ -1,4 +1,5 @@
 import commonConfig, { PATHS } from './webpack.common.js';
+import WebpackAssetsManifest from 'webpack-assets-manifest';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import merge from 'webpack-merge';
@@ -37,7 +38,13 @@ const config = {
       },
     ],
   },
-  plugins: [new CleanWebpackPlugin(PATHS.build, cleanOptions), extractSass],
+  plugins: [
+    new CleanWebpackPlugin(PATHS.build, cleanOptions),
+    new WebpackAssetsManifest({
+      output: 'asset-manifest.json',
+    }),
+    extractSass,
+  ],
 };
 
 export default merge(commonConfig, config);

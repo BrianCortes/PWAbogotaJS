@@ -32,7 +32,7 @@ class Home extends React.Component {
           <h1>Welcome to BogotaJS</h1>
         </div>
         <Input />
-        {this.state.data.length > 0 ? <Swipe profiles={data} /> : null}
+        {/* this.state.data.length > 0 ? <Swipe profiles={data} /> : null */}
         {/* <p>Search:</p> */}
       </div>
     );

@@ -5,6 +5,8 @@
   "main": "index.js",
   "author": "Brian Cortes",
   "license": "MIT",
+  "engineStrict": true,
+  "engines": { "node": ">=8.0.0" },
   "devDependencies": {
     "babel-plugin-syntax-async-functions": "^6.13.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -19,8 +21,10 @@
     "webpack-dev-server": "^2.9.5"
   },
   "scripts": {
-    "start": "nodemon --watch ./webpack/webpack.development.js --exec \"babel-node -- node_modules/.bin/webpack-dev-server --config ./webpack/webpack.development.js --env development\"",
-    "build": "babel-node -- node_modules/.bin/webpack --config ./webpack/webpack.production.js --env production",
+    "start":
+      "nodemon --watch ./webpack/webpack.development.js --exec \"babel-node -- node_modules/.bin/webpack-dev-server --config ./webpack/webpack.development.js --env development\"",
+    "build":
+      "babel-node -- node_modules/.bin/webpack --config ./webpack/webpack.production.js --env production",
     "prettier": "prettier --config .prettierrc --write '*/**.js' '!build/*'"
   },
   "dependencies": {
@@ -34,7 +38,7 @@
     "clean-webpack-plugin": "^0.1.17",
     "enquire.js": "^2.1.6",
     "html-webpack-plugin": "^2.30.1",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.8.3",
     "normalize.css": "^8.0.0",
     "prettier": "^1.8.2",
     "prettier-webpack-loader": "^0.0.1",
@@ -44,6 +48,7 @@
     "react-swipe": "^5.1.1",
     "swipe-js-iso": "^2.0.4",
     "webpack": "^3.9.1",
+    "webpack-assets-manifest": "1",
     "webpack-merge": "^4.1.1"
   }
 }
