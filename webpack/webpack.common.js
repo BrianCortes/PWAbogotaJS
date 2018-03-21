@@ -11,7 +11,6 @@ export const PATHS = {
 const commonConfig = {
   entry: {
     app: PATHS.app,
-    worker: PATHS.worker,
   },
   output: {
     path: PATHS.build,

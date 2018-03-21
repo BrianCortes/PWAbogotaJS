@@ -1,11 +1,12 @@
+const nameCache = 'bogotajs-cache2';
+
 self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open('bogotajs-cache').then(function(cache) {
+    caches.open(nameCache).then(function(cache) {
       // Get the assets manifest so we can see what our js file is named
       // This is because webpack hashes it
       fetch('./asset-manifest.json')
         .then(response => {
-          debugger;
           return response.json();
         })
         .then(assets => {
@@ -22,14 +23,14 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['bogotajs-cache'];
-
+  var cacheWhitelist = [nameCache];
   event.waitUntil(
-    caches.keys().then(function(cacheNames) {
+    caches.keys().then(function(keys) {
       return Promise.all(
-        cacheNames.map(function(cacheName) {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
+        keys.map(function(key) {
+          console.log(!cacheWhitelist.includes(key));
+          if (!cacheWhitelist.includes(key)) {
+            return caches.delete(key);
           }
         })
       );
@@ -45,19 +46,15 @@ self.addEventListener('fetch', function(event) {
   // Don't try to handle non-secure assets because fetch will fail
   // Here's where we cache all the things!
   event.respondWith(
-    // Open the cache created when install
     caches.open('bogotajs-cache').then(function(cache) {
-      // Go to the network to ask for that resource
       return fetch(event.request)
         .then(function(networkResponse) {
-          // Add a copy of the response to the cache (updating the old version)
-          // cache.put(event.request, networkResponse.clone());
-          // Respond with it
+          console.log('with internet', networkResponse);
+          cache.put(event.request, networkResponse.clone());
           return networkResponse;
         })
         .catch(function() {
-          // If there is no internet connection, try to match the request
-          // to some of our cached resources
+          console.log('without internet', cache.match(event.request));
           return cache.match(event.request);
         });
     })
@@ -65,7 +62,6 @@ self.addEventListener('fetch', function(event) {
 });
 
 if ('serviceWorker' in navigator) {
-  debugger;
   fetch('./asset-manifest.json')
     .then(response => {
       return response.json();

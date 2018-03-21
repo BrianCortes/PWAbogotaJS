@@ -16,6 +16,9 @@ const cleanOptions = {
 };
 
 const config = {
+  entry: {
+    worker: PATHS.worker,
+  },
   output: {
     path: PATHS.build,
     filename: '[name].[chunkhash].js',
