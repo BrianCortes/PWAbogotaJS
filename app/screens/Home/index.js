@@ -20,6 +20,10 @@ class Home extends React.Component {
     Api.getOrgs('colombia-dev/members')
       .then(res => {
         this.setState({ data: res.data });
+        var loader = document.getElementById('loader');
+        loader.style.display = 'none';
+        var body = document.getElementsByTagName('body');
+        body[0].classList.remove('overflow');
       })
       .catch(error => {
         console.log(error);
@@ -36,7 +40,6 @@ class Home extends React.Component {
 
   render() {
     const { data, data2 } = this.state;
-    debugger;
     return (
       <div className="pwa-container">
         <div className="pwa-header">
@@ -44,7 +47,9 @@ class Home extends React.Component {
           <Menu />
           <h1>Welcome to BogotaJS</h1>
         </div>
+        <h2>Colombia Dev</h2>
         {this.state.data.length > 0 ? <Swipe profiles={data} /> : null}
+        <h2>Facebook</h2>
         {data2.length > 0 ? <Organization members={data2} /> : null}
       </div>
     );

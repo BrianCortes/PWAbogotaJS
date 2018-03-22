@@ -5,13 +5,78 @@
   <meta charset="utf-8">
   <title>BogotaJS</title>
   <meta content="width=device-width,initial-scale=1.0" name="viewport">
-  <link href="https://fonts.googleapis.com/css?family=Copse|Fredoka+One|Pacifico" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style type="text/css">
+    .overflow {
+      overflow: hidden;
+    }
+
+    #loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+    }
+
+    .spinner {
+      width: 100px;
+      height: 100px;
+      background-color: white;
+      margin: 100px auto;
+      -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+      animation: sk-rotateplane 1.2s infinite ease-in-out;
+    }
+
+    @-webkit-keyframes sk-rotateplane {
+      0% {
+        -webkit-transform: perspective(120px)
+      }
+      50% {
+        -webkit-transform: perspective(120px) rotateY(180deg)
+      }
+      100% {
+        -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg)
+      }
+    }
+
+    @keyframes sk-rotateplane {
+      0% {
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+      }
+      50% {
+        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+      }
+      100% {
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+      }
+    }
+  </style>
 </head>
 
-<body>
-  <div id="root"></div>
+<body class="overflow" style="background: linear-gradient(to right, #ff512f, #dd2476);">
+  <div id='loader'>
+    <div class="spinner"></div>
+  </div>
+  <div id="root">
+  </div>
 </body>
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js'></script>
+<script type='text/javascript'>
+  WebFont.load({
+    google: {
+      families: [
+        'Copse',
+        'Fredoka+One',
+        'Pacifico',
+        'Roboto',
+        'Material+Icons'
+      ]
+    }
+  });
+</script>
 
 </html>
